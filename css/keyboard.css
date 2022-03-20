@@ -1,12 +1,13 @@
 #keyboard {
   position: relative;
     width: 870px;
-    height: 140px;
+    height: 120px;
     /* background-color: red; */
     margin: 0 auto;
 }
 .key {
   font-family: 'BIZ UDPGothic', meiryo;
+  /* font-family: Comic Sans MS; */
   font-size: 40px;
   color: white;
   background-color: black;

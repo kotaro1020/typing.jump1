@@ -45,28 +45,28 @@
   }
 
   const words = [
-    {alphabet:'ennsoku'},
-    {alphabet:'fukuro'},
-    {alphabet:'senaka'},
-    {alphabet:'kaeru'},
-    {alphabet:'taiko'},
-    {alphabet:'okasi'},
-    {alphabet:'kusuri'},
-    {alphabet:'utiwa'},
-    {alphabet:'kirinn'},
-    {alphabet:'satoimo'},
-    {alphabet:'tannkenn'},
-    {alphabet:'kaimono'},
-    {alphabet:'kaminari'},
-    {alphabet:'yama'},
-    {alphabet:'hatake'},
-    {alphabet:'kumori'},
-    {alphabet:'tukue'},
-    {alphabet:'ehonn'},
-    {alphabet:'himawari'},
-    {alphabet:'sakana'},
-    {alphabet:'kitutuki'},
-    {alphabet:'tikatetu'},
+    {alphabet:'ennsoku',kana:'えんそく'},
+    {alphabet:'fukuro',kana:'ふくろ'},
+    {alphabet:'senaka',kana:'せなか'},
+    {alphabet:'kaeru',kana:'かえる'},
+    {alphabet:'taiko',kana:'たいこ'},
+    {alphabet:'okasi',kana:'おかし'},
+    {alphabet:'kusuri',kana:'くすり'},
+    {alphabet:'utiwa',kana:'うちわ'},
+    // {alphabet:'kirinn'},
+    {alphabet:'satoimo',kana:'さといも'},
+    {alphabet:'tannkenn',kana:'たんけん'},
+    {alphabet:'kaimono',kana:'かいもの'},
+    // {alphabet:'kaminari'},
+    {alphabet:'yama',kana:'やま'},
+    {alphabet:'hatake',kana:'はたけ'},
+    {alphabet:'kumori',kana:'くもり'},
+    // {alphabet:'tukue'},
+    {alphabet:'ehonn',kana:'えほん'},
+    {alphabet:'himawari',kana:'ひまわり'},
+    {alphabet:'sakana',kana:'さかな'},
+    {alphabet:'kitutuki',kana:'きつつき'},
+    // {alphabet:'tikatetu'},
   ];
   let word;
   let loc = 0;
@@ -74,7 +74,7 @@
   let isPlaying = false;
   const underbar1 = document.getElementById('underbar1');
   const underbar2 = document.getElementById('underbar2');
-  // const kana = document.getElementById('kana');
+  const kana = document.getElementById('kana');
   const target = document.getElementById('target');
   let inputWord = '';
   let oneWordAlphabet = '';
@@ -83,7 +83,7 @@
 
   document.body.addEventListener('keydown',
     event => {
-        if (event.key === 'o' && event.ctrlKey) {
+        if (event.key === 'y' && event.ctrlKey) {
           enableBright = !enableBright;
           console.log("bright:"+enableBright);
         }
@@ -139,7 +139,8 @@
       if (words.length === 0) {
         const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
         const result = document.getElementById('result');
-        result.innerHTML = `Finished! ${elapsedTime} 秒!<br>平均文字数<br>（１分):${(totalCharCount/(elapsedTime/60)).toFixed(2)}`;
+        result.innerHTML = `Finished! ${elapsedTime} 秒!<br>入力スピード:${(totalCharCount/(elapsedTime/60)).toFixed(0)}key/分`;
+        result.style.display = "block"
         return;
       }
 
